@@ -1,221 +1,1319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Mayar Mohamed | Front-End Developer & UI/UX Designer</title>
-<meta name="description" content="Portfolio of Mayar Mohamed – Front-End Developer and UI/UX Designer specializing in React, Angular, Vue, and user-centered design." />
-<link rel="stylesheet" href="index.css" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@500;600&display=swap" rel="stylesheet" />
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Person",
-  "name":"Mayar Mohamed Mohamed",
-  "jobTitle":"Front-End Developer & UI/UX Designer",
-  "email":"mailto:mayarmohamed.8d6v@gmail.com",
-  "telephone":"+201033224614",
-  "url":"https://github.com/MayarMohameed",
-  "sameAs":[
-    "https://www.behance.net/",
-    "https://www.linkedin.com/in/"
-  ],
-  "address":{
-    "@type":"PostalAddress",
-    "addressLocality":"Assiut",
-    "addressCountry":"EG"
-  },
-  "knowsAbout":["React","Angular","Vue.js","UI/UX","Figma","Responsive Web Design"]
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayar Mohamed | Front-End Developer & UI/UX Designer Portfolio</title>
+    <meta name="description" content="Portfolio of Mayar Mohamed, a passionate Front-End Developer and UI/UX Designer specializing in React, Next.js, Figma, and accessible web experiences.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
+<body class="dark-theme">
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="custom-cursor-ring"></div>
 
-<body>
-<header class="site-header">
-  <div class="container header__inner">
-    <div class="brand">
-      <h1 class="brand__title">Mayar Mohamed</h1>
-      <p class="brand__subtitle">Front-End Developer · UI/UX Designer</p>
+    <!-- Canvas for interactive background -->
+    <canvas id="interactive-bg"></canvas>
+
+    <!-- Liquid transition overlay -->
+    <div class="liquid-overlay"></div>
+
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-text magnetic" data-dist="10">
+                <span class="gradient-text">Mayar</span>.dev
+            </a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#uiux-projects" class="nav-link">UI/UX Design</a></li>
+                    <li><a href="#frontend-projects" class="nav-link">Front-End</a></li>
+                    <li><a href="#playground" class="nav-link">UX Sandbox</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle-btn magnetic" aria-label="Toggle Theme" data-dist="15">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <a href="#contact" class="cta-btn magnetic" data-dist="20">Hire Me</a>
+            </div>
+            <button class="mobile-nav-toggle" aria-label="Toggle Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay">
+        <nav class="mobile-nav-menu">
+            <ul>
+                <li><a href="#hero" class="mobile-link">Home</a></li>
+                <li><a href="#about" class="mobile-link">About</a></li>
+                <li><a href="#skills" class="mobile-link">Skills</a></li>
+                <li><a href="#uiux-projects" class="mobile-link">UI/UX Design</a></li>
+                <li><a href="#frontend-projects" class="mobile-link">Front-End</a></li>
+                <li><a href="#playground" class="mobile-link">UX Sandbox</a></li>
+                <li><a href="#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </nav>
     </div>
 
-    <nav class="nav">
-      <ul class="nav__list">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#languages">Languages</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <!-- Main Container -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-profile-pic-wrapper reveal-anim">
+                    <div class="hero-profile-pic">
+                        <img src="profile.jpg" alt="Mayar Mohamed" class="profile-img">
+                        <div class="profile-glow"></div>
+                    </div>
+                </div>
+                <div class="badge-wrapper reveal-anim">
+                    <span class="hero-badge"><span class="pulse-dot"></span> Open to Work</span>
+                </div>
+                <h1 class="hero-title reveal-anim">
+                    <span class="greet-text">Hi, I'm</span>
+                    <span class="name-text gradient-text">Mayar Mohamed</span>
+                </h1>
+                <h2 class="hero-subtitle reveal-anim">
+                    <span class="typewriter" data-words='["Front-End Developer", "UI/UX Designer", "Creative Thinker"]'></span><span class="cursor">|</span>
+                </h2>
+                <p class="hero-description reveal-anim">
+                    I bridge the gap between design and technology. By combining deep UI/UX research with clean, modular front-end architecture, I build responsive, highly accessible, and visually stunning digital products.
+                </p>
+                <div class="hero-ctas reveal-anim">
+                    <a href="#projects" class="btn-primary magnetic" data-dist="15">
+                        View Projects <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn-secondary magnetic" data-dist="15">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
 
-    <button class="mode-toggle" id="modeToggle">🌙</button>
-  </div>
-</header>
+            <!-- Floating Tech Badges (Physics/Float effect) -->
+            <div class="floating-skills-container">
+                <div class="floating-badge react-badge" data-speed="2"><i data-lucide="atom"></i> React</div>
+                <div class="floating-badge figma-badge" data-speed="1.5"><i data-lucide="figma"></i> Figma</div>
+                <div class="floating-badge js-badge" data-speed="2.5"><i data-lucide="code-2"></i> Next.js</div>
+                <div class="floating-badge css-badge" data-speed="1.8"><i data-lucide="palette"></i> CSS3 / UI-UX</div>
+            </div>
 
-<main id="main">
-  <!-- HERO -->
-  <section class="hero" id="about">
-    <div class="container hero__inner reveal">
-      <div class="hero__text">
-        <h2>Hello, I'm <span style="color:var(--primary)">Mayar</span> 👋</h2>
-        <p>
-          A passionate <strong>Front-End Developer</strong> and <strong>UI/UX Designer</strong> skilled in
-          React, Angular, Vue, and human-centered design. I create fast, accessible, and beautiful digital
-          experiences.
-        </p>
+            <div class="scroll-indicator">
+                <span class="mouse-wheel"></span>
+                <span class="scroll-text">Scroll to explore</span>
+            </div>
+        </section>
 
-        <div class="cta-group">
-          <a href="#projects" class="btn primary">View Projects</a>
-          <a href="#contact" class="btn outline">Contact Me</a>
+        <!-- About & Stats Section -->
+        <section id="about" class="about-section section-padding">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">Overview</span>
+                    <h2 class="section-title">A Bit About Me</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text-content reveal-item">
+                        <p class="about-lead">
+                            I hold a <strong>B.Sc. in Computer Science</strong> and a <strong>9-Month Professional Graduate Diploma in Front-end Development & UI/UX Design</strong> from the Information Technology Institute (ITI).
+                        </p>
+                        <p>
+                            Having worked as a UI/UX Designer & Front-End Engineer at AuraQR, I specialize in crafting beautiful digital interfaces using wireframing, high-fidelity prototypes, and building them with robust modern stacks like <strong>ReactJS, Next.js, Vue.js, and Angular</strong>.
+                        </p>
+                        <p>
+                            My approach focuses on <strong>user-centered design</strong>, conducting thorough UX research, structuring intuitive user flows, and implementing W3C accessibility guidelines (WCAG) to make sure digital spaces are inclusive for everyone.
+                        </p>
+                        <div class="personal-info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Location</span>
+                                <span class="info-val">Assiut, Egypt</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Email</span>
+                                <span class="info-val"><a href="mailto:mayarmohamed.8d6v@gmail.com">mayarmohamed.8d6v@gmail.com</a></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Languages</span>
+                                <span class="info-val">Arabic (Native) / English (Excellent)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Stats Grid (Hover depth effect) -->
+                    <div class="stats-grid reveal-item">
+                        <div class="stat-card tilt-card" data-tilt>
+                            <div class="stat-icon-wrapper cyan">
+                                <i data-lucide="graduation-cap"></i>
+                            </div>
+                            <h3 class="stat-num">B.Sc.</h3>
+                            <p class="stat-label">Computer Science (Assiut Univ.)</p>
+                            <span class="stat-sub">Cumulative Grade: Good</span>
+                        </div>
+
+                        <div class="stat-card tilt-card" data-tilt>
+                            <div class="stat-icon-wrapper violet">
+                                <i data-lucide="award"></i>
+                            </div>
+                            <h3 class="stat-num">ITI</h3>
+                            <p class="stat-label">9-Month Pro Diploma</p>
+                            <span class="stat-sub">Front-End & UI/UX Specialization</span>
+                        </div>
+
+                        <div class="stat-card tilt-card" data-tilt>
+                            <div class="stat-icon-wrapper coral">
+                                <i data-lucide="briefcase"></i>
+                            </div>
+                            <h3 class="stat-num">6m</h3>
+                            <p class="stat-label">AuraQR Experience</p>
+                            <span class="stat-sub">UI/UX & Front-End Engineer</span>
+                        </div>
+
+                        <div class="stat-card tilt-card" data-tilt>
+                            <div class="stat-icon-wrapper gold">
+                                <i data-lucide="layers"></i>
+                            </div>
+                            <h3 class="stat-num">7+</h3>
+                            <p class="stat-label">Web & UX Projects</p>
+                            <span class="stat-sub">Delivered Responsive Platforms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Interactive Timeline -->
+                <div class="timeline-container reveal-item">
+                    <h3 class="timeline-title">My Professional Journey</h3>
+                    <div class="timeline">
+                        <div class="timeline-line"></div>
+                        
+                        <div class="timeline-item left active" data-index="0">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="time-date">Oct 2020 - July 2024</span>
+                                <h4>B.Sc. in Computer Science</h4>
+                                <h5>Faculty of Computer and Information, Assiut University</h5>
+                                <p>Gained strong foundations in OOP, Data Structures, Algorithms, Software Engineering, Database Systems (PostgreSQL, MySQL), and C/C++ programming.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item right" data-index="1">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="time-date">Oct 2024 - July 2025</span>
+                                <h4>Professional Diploma (ITI)</h4>
+                                <h5>Information Technology Institute, Assiut Branch</h5>
+                                <p>Intensive 9-month professional track covering UI/UX principles, user research, wireframing, high-fidelity Figma prototyping, and advanced Front-end technologies (React, Angular, Next.js, CSS grid/flexbox, accessibility).</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item left" data-index="2">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="time-date">2026 (6 Months)</span>
+                                <h4>UI/UX Designer & Front-End Engineer</h4>
+                                <h5>AuraQR - Egypt</h5>
+                                <p>Designed and developed intuitive web products using Figma, Stitch, React, and NextJS. Implemented semantic structures, micro-interactions, and accessible layouts for high conversion and responsive adaptability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Matrix Section -->
+        <section id="skills" class="skills-section section-padding">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">Competencies</span>
+                    <h2 class="section-title">Technical Skill Matrix</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <!-- Skill Filter Tabs -->
+                <div class="skills-tab-container reveal-item">
+                    <button class="skill-tab active" data-target="frontend">Front-End Engineering</button>
+                    <button class="skill-tab" data-target="uiux">UI/UX & Design Thinking</button>
+                    <button class="skill-tab" data-target="backend">Backend & Foundations</button>
+                </div>
+
+                <div class="skills-display reveal-item">
+                    <!-- Front-End Tab Content -->
+                    <div class="skills-panel active" id="frontend-panel">
+                        <div class="panel-intro-grid">
+                            <div class="panel-summary">
+                                <h3>Modern Front-End Development</h3>
+                                <p>I develop modular, pixel-perfect, responsive components. I emphasize semantic HTML, efficient styling via CSS/Sass, TypeScript safety, and optimal client/server rendering models using Next.js.</p>
+                            </div>
+                            <div class="skills-list-grid">
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>ReactJS & Next.js</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>Vue.js & Angular</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>JavaScript (ES6+) & TypeScript</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>HTML5, CSS3 & Sass</span>
+                                        <span>98%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 98%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>Tailwind CSS, Material UI & Bootstrap</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>Vibe Coding & AI Agent Workflows</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UI/UX Tab Content -->
+                    <div class="skills-panel" id="uiux-panel">
+                        <div class="panel-intro-grid">
+                            <div class="panel-summary">
+                                <h3>User Experience & Interface Design</h3>
+                                <p>I follow human-computer interaction (HCI) methodologies. From user interviews and persona profiles to structural wireframes, visual systems, components in Figma, and interactive high-fidelity prototypes.</p>
+                            </div>
+                            <div class="skills-list-grid">
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>Figma & Adobe Illustrator</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>User Research & Persona Design</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>Wireframing & Prototyping</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>User Flow & Site Architecture</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>Accessibility (WCAG) Design</span>
+                                        <span>92%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 92%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>Design Thinking Methodology</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend & Core Tab Content -->
+                    <div class="skills-panel" id="backend-panel">
+                        <div class="panel-intro-grid">
+                            <div class="panel-summary">
+                                <h3>Backend Systems & Core Foundations</h3>
+                                <p>My Computer Science degree equips me to write clean algorithm logic and design normalized relational databases or flexible document schemas for fast data query speeds.</p>
+                            </div>
+                            <div class="skills-list-grid">
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>PostgreSQL & MySQL</span>
+                                        <span>80%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>MongoDB</span>
+                                        <span>75%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>C / C++ Programming</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>Data Structures & Design Patterns</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>RESTful API Integration</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+                                </div>
+                                <div class="skill-progress-card">
+                                    <div class="skill-info">
+                                        <span>Git, GitHub & Agile Methods</span>
+                                        <span>92%</span>
+                                    </div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 92%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI/UX Case Studies Section -->
+        <section id="uiux-projects" class="projects-section section-padding">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">Visual Systems</span>
+                    <h2 class="section-title">UI/UX Case Studies</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="projects-grid reveal-item">
+                    <!-- Project: Saree3 Mobile UI/UX -->
+                    <div class="project-card filter-card uiux" data-project="saree3-mobile">
+                        <div class="project-card-header">
+                            <span class="proj-tag">UI/UX Mobile Design</span>
+                            <h3>Saree3 Mobile App</h3>
+                        </div>
+                        <p class="proj-desc">Premium high-fidelity interface design for the Saree3 automotive platform, detailing both dark and light mobile environments.</p>
+                        
+                        <!-- Side-by-side Mobile Mockups -->
+                        <div class="project-mockup-container saree3-mobile-card-mockup">
+                            <div class="saree3-mobile-split-preview">
+                                <div class="split-side dark-side">
+                                    <img src="saree3_dark.png" alt="Sary3 Mobile Dark Mode UI">
+                                </div>
+                                <div class="split-side light-side">
+                                    <img src="saree3_light.png" alt="Sary3 Mobile Light Mode UI">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-links">
+                            <button class="project-demo-btn" data-target-modal="saree3-mobile-modal">
+                                View Case Study <i data-lucide="maximize-2"></i>
+                            </button>
+                            <span class="proj-external-disabled"><i data-lucide="figma"></i> Figma Only</span>
+                        </div>
+                    </div>
+
+                    <!-- Project: NurseConnect (3Naya) -->
+                    <div class="project-card filter-card uiux frontend" data-project="3naya">
+                        <div class="project-card-header">
+                            <span class="proj-tag">Figma & Next.js</span>
+                            <h3>NurseConnect (3Naya)</h3>
+                        </div>
+                        <p class="proj-desc">Smart healthcare platform linking patients with verified local nurses. Designed entire user flows and high-fidelity prototypes.</p>
+                        
+                        <!-- Interactive Mockup for NurseConnect (Interactive request workflow) -->
+                        <div class="project-mockup-container">
+                            <div class="mockup-header-bar">
+                                <span class="mock-dot red"></span>
+                                <span class="mock-dot yellow"></span>
+                                <span class="mock-dot green"></span>
+                                <span class="mock-address">nurseconnect.3naya.com</span>
+                            </div>
+                            <div class="mockup-content-area nurse-mockup-img-wrapper">
+                                <img src="nurseconnect.png" alt="NurseConnect Landing Page" class="nurse-mockup-img">
+                            </div>
+                        </div>
+
+                        <div class="project-links">
+                            <button class="project-demo-btn" data-target-modal="3naya-modal">
+                                Interactive Walkthrough <i data-lucide="maximize-2"></i>
+                            </button>
+                            <span class="proj-external-disabled"><i data-lucide="lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Project: Shefaa Mobile UI/UX -->
+                    <div class="project-card filter-card uiux" data-project="shefa-mobile">
+                        <div class="project-card-header">
+                            <span class="proj-tag">UI/UX Mobile Design</span>
+                            <h3>Shefaa Mobile App</h3>
+                        </div>
+                        <p class="proj-desc">High-fidelity UI/UX design for the Shefaa patient healthcare mobile app, focusing on quick clinic access, doctor directories, and appointments.</p>
+                        
+                        <!-- Mobile Mockup -->
+                        <div class="project-mockup-container shefa-mobile-card-mockup">
+                            <div class="shefa-mobile-preview-wrapper">
+                                <img src="shefa_mobile.png" alt="Shefaa Mobile App UI Layout" class="shefa-mobile-card-img">
+                            </div>
+                        </div>
+
+                        <div class="project-links">
+                            <button class="project-demo-btn" data-target-modal="shefa-mobile-modal">
+                                View Case Study <i data-lucide="maximize-2"></i>
+                            </button>
+                            <span class="proj-external-disabled"><i data-lucide="figma"></i> Figma Only</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Front-End Engineering Section -->
+        <section id="frontend-projects" class="projects-section section-padding section-bg-alt">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">Engineering</span>
+                    <h2 class="section-title">Front-End Applications</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="projects-grid reveal-item">
+                    <!-- Project 1: Saree3 -->
+                    <div class="project-card filter-card uiux frontend" data-project="saree3">
+                        <div class="project-card-header">
+                            <span class="proj-tag">UI/UX & Frontend</span>
+                            <h3>Saree3</h3>
+                        </div>
+                        <p class="proj-desc">Automotive service platform for browsing cars, reservation management, and scheduling maintenance service requests.</p>
+                        
+                        <!-- Interactive SVG Mockup for Saree3 (Car dashboard widget) -->
+                        <div class="project-mockup-container">
+                            <div class="mockup-header-bar">
+                                <span class="mock-dot red"></span>
+                                <span class="mock-dot yellow"></span>
+                                <span class="mock-dot green"></span>
+                                <span class="mock-address">saree3.qraura.shop</span>
+                            </div>
+                            <div class="mockup-content-area saree3-mockup">
+                                <div class="saree3-dashboard-preview">
+                                    <div class="saree3-sidebar-mock">
+                                        <div class="mock-logo">🏎️</div>
+                                        <div class="mock-nav-item active"></div>
+                                        <div class="mock-nav-item"></div>
+                                        <div class="mock-nav-item"></div>
+                                    </div>
+                                    <div class="saree3-main-mock">
+                                        <div class="mock-banner">
+                                            <h4>Find Your Perfect Service</h4>
+                                            <div class="mock-search-bar"></div>
+                                        </div>
+                                        <div class="mock-car-grid">
+                                            <div class="mock-car-card active-car" data-car="SUV">
+                                                <div class="car-pic">🚙</div>
+                                                <span class="car-name">Adventure SUV</span>
+                                            </div>
+                                            <div class="mock-car-card" data-car="Sedan">
+                                                <div class="car-pic">🚗</div>
+                                                <span class="car-name">Luxury Sedan</span>
+                                            </div>
+                                            <div class="mock-car-card" data-car="Sport">
+                                                <div class="car-pic">🏎️</div>
+                                                <span class="car-name">Sport Turbo</span>
+                                            </div>
+                                        </div>
+                                        <button class="mock-btn-book">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-links">
+                            <button class="project-demo-btn" data-target-modal="saree3-modal">
+                                Interactive Walkthrough <i data-lucide="maximize-2"></i>
+                            </button>
+                            <a href="https://saree3.qraura.shop" target="_blank" rel="noopener noreferrer" class="proj-external"><i data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Shefa -->
+                    <div class="project-card filter-card uiux frontend" data-project="shefa">
+                        <div class="project-card-header">
+                            <span class="proj-tag">Accessibility & React</span>
+                            <h3>Shefa Healthcare</h3>
+                        </div>
+                        <p class="proj-desc">Accessible portal for healthcare workflows, implementing clean layouts and accessibility options (WCAG AA compliance).</p>
+                        
+                        <!-- Interactive Mockup for Shefa (Live accessibility simulator) -->
+                        <div class="project-mockup-container">
+                            <div class="mockup-header-bar">
+                                <span class="mock-dot red"></span>
+                                <span class="mock-dot yellow"></span>
+                                <span class="mock-dot green"></span>
+                                <span class="mock-address">shefa.qraura.shop</span>
+                            </div>
+                            <div class="mockup-content-area shefa-mockup-img-wrapper">
+                                <img src="shefa.png" alt="Shefa Healthcare Landing Page" class="shefa-mockup-img">
+                            </div>
+                        </div>
+
+                        <div class="project-links">
+                            <button class="project-demo-btn" data-target-modal="shefa-modal">
+                                Interactive Walkthrough <i data-lucide="maximize-2"></i>
+                            </button>
+                            <a href="https://shefa.qraura.shop" target="_blank" rel="noopener noreferrer" class="proj-external"><i data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Jailak -->
+                    <div class="project-card filter-card frontend" data-project="jailak">
+                        <div class="project-card-header">
+                            <span class="proj-tag">Front-End (HTML/CSS/JS)</span>
+                            <h3>Jailak Booking</h3>
+                        </div>
+                        <p class="proj-desc">Restaurant reservation and meal delivery website. Built a custom, interactive dining-table layout and booking system.</p>
+                        
+                        <!-- Interactive Mockup for Jailak (Booking calendar widget) -->
+                        <div class="project-mockup-container">
+                            <div class="mockup-header-bar">
+                                <span class="mock-dot red"></span>
+                                <span class="mock-dot yellow"></span>
+                                <span class="mock-dot green"></span>
+                                <span class="mock-address">jailak-delivery.com</span>
+                            </div>
+                            <div class="mockup-content-area jailak-mockup">
+                                <div class="jailak-calendar-preview">
+                                    <div class="mini-calendar">
+                                        <div class="cal-month">June 2026</div>
+                                        <div class="cal-days">
+                                            <span class="cal-day">14</span>
+                                            <span class="cal-day active-day">15</span>
+                                            <span class="cal-day">16</span>
+                                            <span class="cal-day">17</span>
+                                            <span class="cal-day">18</span>
+                                        </div>
+                                    </div>
+                                    <div class="time-picker">
+                                        <span class="time-slot active-slot">7:00 PM</span>
+                                        <span class="time-slot">8:30 PM</span>
+                                    </div>
+                                    <button class="mock-btn-reserve">Reserve Table</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-links">
+                            <button class="project-demo-btn" data-target-modal="jailak-modal">
+                                Interactive Walkthrough <i data-lucide="maximize-2"></i>
+                            </button>
+                            <span class="proj-external-disabled"><i data-lucide="lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: E-Commerce Platform -->
+                    <div class="project-card filter-card frontend" data-project="ecommerce">
+                        <div class="project-card-header">
+                            <span class="proj-tag">React & Material UI</span>
+                            <h3>React E-Commerce</h3>
+                        </div>
+                        <p class="proj-desc">Full e-commerce platform with dynamic product grids, a centralized state shopping cart system, and responsive layout interfaces.</p>
+                        
+                        <!-- Interactive Mockup for E-Commerce (Cart item adder) -->
+                        <div class="project-mockup-container">
+                            <div class="mockup-header-bar">
+                                <span class="mock-dot red"></span>
+                                <span class="mock-dot yellow"></span>
+                                <span class="mock-dot green"></span>
+                                <span class="mock-address">react-store.local</span>
+                            </div>
+                            <div class="mockup-content-area shop-mockup">
+                                <div class="shop-preview">
+                                    <div class="shop-item">
+                                        <div class="item-visual">🎧</div>
+                                        <div class="item-details">
+                                            <span class="item-title">ANC Headset</span>
+                                            <span class="item-price">$99.00</span>
+                                        </div>
+                                        <button class="add-to-cart-mock"><i data-lucide="shopping-cart"></i> +</button>
+                                    </div>
+                                    <div class="shop-cart-indicator">
+                                        <i data-lucide="shopping-bag"></i> <span id="mock-cart-count">0</span> items
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-links">
+                            <button class="project-demo-btn" data-target-modal="ecommerce-modal">
+                                Detailed Stack <i data-lucide="maximize-2"></i>
+                            </button>
+                            <span class="proj-external-disabled"><i data-lucide="github"></i> Private</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Exam System -->
+                    <div class="project-card filter-card frontend" data-project="examsystem">
+                        <div class="project-card-header">
+                            <span class="proj-tag">Angular & REST APIs</span>
+                            <h3>Online Exam Portal</h3>
+                        </div>
+                        <p class="proj-desc">Online assessment platform using Angular, featuring user security authorization, exam builders, timer control, and grade reporting.</p>
+                        
+                        <!-- Interactive Mockup for Exam System (Live interactive MCQ quiz) -->
+                        <div class="project-mockup-container">
+                            <div class="mockup-header-bar">
+                                <span class="mock-dot red"></span>
+                                <span class="mock-dot yellow"></span>
+                                <span class="mock-dot green"></span>
+                                <span class="mock-address">exam-portal.edu</span>
+                            </div>
+                            <div class="mockup-content-area exam-mockup">
+                                <div class="exam-preview">
+                                    <div class="exam-header">
+                                        <span>Question 3 of 10</span>
+                                        <span class="exam-timer">08:42</span>
+                                    </div>
+                                    <p class="exam-question">Which directive in Angular binds a class conditionally?</p>
+                                    <div class="exam-options">
+                                        <div class="exam-opt" data-correct="false">ngStyle</div>
+                                        <div class="exam-opt" id="exam-correct-opt" data-correct="true">[ngClass]</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-links">
+                            <button class="project-demo-btn" data-target-modal="exam-modal">
+                                Detailed Stack <i data-lucide="maximize-2"></i>
+                            </button>
+                            <span class="proj-external-disabled"><i data-lucide="github"></i> Private</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI/UX Sandbox / Interactive Playground -->
+        <section id="playground" class="playground-section section-padding">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">Interactive Experiments</span>
+                    <h2 class="section-title">UI/UX Playground</h2>
+                    <p class="section-subtitle">Play with these live micro-interactions designed to prove my proficiency in custom UI/UX implementation and frontend engineering.</p>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="playground-grid">
+                    <!-- Widget 1: Magnetic Physics -->
+                    <div class="playground-card reveal-item">
+                        <div class="widget-header">
+                            <i data-lucide="magnet" class="widget-icon"></i>
+                            <h4>Magnetic Field Elements</h4>
+                        </div>
+                        <p class="widget-desc">Hover over the sphere to feel the magnet attraction. The element pulls toward the mouse cursor smoothly using a vector distance formula.</p>
+                        <div class="widget-canvas">
+                            <div class="magnetic-field-box">
+                                <div class="magnetic-bubble magnetic" data-dist="60">
+                                    <span class="bubble-core">Pull Me</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Widget 2: 3D Depth Card with Spotlight Reflection -->
+                    <div class="playground-card reveal-item">
+                        <div class="widget-header">
+                            <i data-lucide="layers-3d" class="widget-icon"></i>
+                            <h4>Spotlight 3D Card</h4>
+                        </div>
+                        <p class="widget-desc">Hover over this card. The card tilts in 3D space according to mouse coordinates, while dynamically drawing a spotlight reflection overlay.</p>
+                        <div class="widget-canvas">
+                            <div class="interactive-depth-card tilt-card" data-tilt>
+                                <div class="spotlight-layer"></div>
+                                <div class="card-inner-details">
+                                    <i data-lucide="sparkles" class="card-sparkle"></i>
+                                    <h5>Glass Card</h5>
+                                    <p>Tilt with Light Reflection Vector</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Widget 3: Gooey Fluid Slider -->
+                    <div class="playground-card reveal-item">
+                        <div class="widget-header">
+                            <i data-lucide="sliders" class="widget-icon"></i>
+                            <h4>Elastic Value Slider</h4>
+                        </div>
+                        <p class="widget-desc">A custom slider where the tooltip bubble floats and stretches dynamically like liquid or rubber as you drag it across values.</p>
+                        <div class="widget-canvas">
+                            <div class="elastic-slider-wrapper">
+                                <div class="elastic-bubble-val" id="slider-bubble">50</div>
+                                <input type="range" min="0" max="100" value="50" class="elastic-slider" id="elastic-range">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">Let's Connect</span>
+                    <h2 class="section-title">Start A Conversation</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info reveal-item">
+                        <h3>Let's build something exceptional together</h3>
+                        <p>I am seeking full-time opportunities or freelance collaborations as a Front-End Engineer and UI/UX Designer. Drop a message to request a detailed PDF resume or discuss a project.</p>
+                        
+                        <div class="contact-details">
+                            <div class="details-item">
+                                <div class="details-icon"><i data-lucide="mail"></i></div>
+                                <div class="details-txt">
+                                    <span>Send an Email</span>
+                                    <a href="mailto:mayarmohamed.8d6v@gmail.com">mayarmohamed.8d6v@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="details-item">
+                                <div class="details-icon"><i data-lucide="phone"></i></div>
+                                <div class="details-txt">
+                                    <span>Call or Text</span>
+                                    <a href="tel:+201033224614">+20 103 322 4614</a>
+                                </div>
+                            </div>
+                            <div class="details-item">
+                                <div class="details-icon"><i data-lucide="map-pin"></i></div>
+                                <div class="details-txt">
+                                    <span>Based In</span>
+                                    <span>Assiut, Egypt (Open to remote / relocation)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Profiles Link Cards -->
+                        <div class="profiles-card-links">
+                            <a href="https://github.com/MayarMohameed" target="_blank" rel="noopener noreferrer" class="profile-link-card magnetic" data-dist="15">
+                                <i data-lucide="github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mayar-mohamed9" target="_blank" rel="noopener noreferrer" class="profile-link-card magnetic" data-dist="15">
+                                <i data-lucide="linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://www.behance.net/mayarmohamed87" target="_blank" rel="noopener noreferrer" class="profile-link-card magnetic" data-dist="15">
+                                <i data-lucide="behance"></i>
+                                <span>Behance</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Mayar Mohamed Mohamed. Handcrafted with precision.</p>
+            <p class="footer-subtext">Designed in Figma &bull; Coded in HTML/CSS/Vanilla JS &bull; Driven by motion</p>
         </div>
-      </div>
+    </footer>
+
+    <!-- Interactive Project Walkthrough Modals -->
+    <!-- Modal 1: Saree3 -->
+    <div class="project-modal" id="saree3-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" aria-label="Close Modal"><i data-lucide="x"></i></button>
+            <div class="modal-body-scroll">
+                <div class="modal-grid-layout">
+                    <div class="modal-text-side">
+                        <span class="modal-tag">Case Study</span>
+                        <h2>Saree3 Automotive</h2>
+                        <h4 class="modal-sub">Car Browsing & Reservation Platform</h4>
+                        <div class="modal-rich-desc">
+                            <p><strong>The Challenge:</strong> Building a highly visual car rental and maintenance booking engine that runs seamlessly across mobile screens, resolving complicated user filters without cluttering the interface.</p>
+                            <p><strong>The Solution:</strong> Implemented a sidebar dashboard navigation coupled with dynamic search filtering. The booking interface leads users through a step-by-step wizard to prevent choice fatigue.</p>
+                            <div class="tech-stack-row">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">Stitch CSS</span>
+                                <span class="tech-tag">Responsive design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-visual-side">
+                        <div class="interactive-prototype-view">
+                            <h5>Figma Interactive Wireframe Simulator</h5>
+                            <p class="proto-helper">Click the cars in the grid below to inspect the responsive user interface flow:</p>
+                            <div class="proto-wireframe">
+                                <div class="wireframe-screen">
+                                    <div class="wf-header">
+                                        <span class="wf-title">Saree3 Grid View</span>
+                                        <span class="wf-status">Connected</span>
+                                    </div>
+                                    <div class="wf-details-card">
+                                        <div class="wf-car-image" id="saree3-proto-img">🚙</div>
+                                        <h4 id="saree3-proto-title">Adventure SUV</h4>
+                                        <p class="wf-specs">Specs: AWD | Hybrid | 5 Seats</p>
+                                        <div class="wf-interactive-buttons">
+                                            <button class="wf-btn primary" onclick="alert('Prototype: Reserving Car!')">Confirm Car Choice</button>
+                                            <button class="wf-btn secondary" onclick="alert('Prototype: Specifications Loaded')">View Specs</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <div class="container reveal">
-      <div class="section__head">
-        <h2>Projects</h2>
-      </div>
-
-      <div class="project-grid">
-        <!-- Project 1 -->
-        <div class="project-card">
-          <h3 class="project-card__title">E-Commerce Website (React)</h3>
-          <p class="project-card__desc">
-            Modern responsive e-commerce website using React & Material UI with authentication and cart system.
-          </p>
-          <ul class="tags">
-            <li>React</li><li>Material UI</li><li>JavaScript</li>
-          </ul>
+    <!-- Modal 1.5: Saree3 Mobile UI/UX -->
+    <div class="project-modal" id="saree3-mobile-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" aria-label="Close Modal"><i data-lucide="x"></i></button>
+            <div class="modal-body-scroll">
+                <div class="modal-grid-layout">
+                    <div class="modal-text-side">
+                        <span class="modal-tag">UI/UX Case Study</span>
+                        <h2>Saree3 Mobile Interface</h2>
+                        <h4 class="modal-sub">Dual-Theme Mobile Design (Dark & Light)</h4>
+                        <div class="modal-rich-desc">
+                            <p><strong>Design Philosophy:</strong> A native mobile design for the Saree3 automotive application, maintaining visual hierarchy, micro-interactions, and accessibility standards across light and dark system settings.</p>
+                            <p><strong>Visual System:</strong> Designed a consistent grid, card sizing, and button structures. The dark mode utilizes deep midnight blues (`#08090C`) with warm orange accents, while the light mode adopts a clean slate aesthetic with vibrant yellow-orange focus colors.</p>
+                            <div class="tech-stack-row">
+                                <span class="tech-tag">UI/UX Design</span>
+                                <span class="tech-tag">Figma Mobile Mockups</span>
+                                <span class="tech-tag">Dark/Light Themes</span>
+                                <span class="tech-tag">Information Architecture</span>
+                            </div>
+                            <div class="modal-behance-row">
+                                <a href="https://www.behance.net/gallery/251208701/SAREE3" target="_blank" class="modal-behance-btn">
+                                    <i data-lucide="behance"></i> To see all designs, click here
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-visual-side saree3-mobile-modal-visual">
+                        <div class="saree3-mobile-slider-container">
+                            <button class="slider-arrow prev-arrow" onclick="slideSaree3(-1)" aria-label="Previous Screens">
+                                <i data-lucide="chevron-left"></i>
+                            </button>
+                            
+                            <div class="saree3-mobile-slider-track">
+                                <div class="saree3-mobile-slide active">
+                                    <div class="mobile-viewport-container">
+                                        <span>Dark Home</span>
+                                        <div class="mobile-viewport-screen">
+                                            <img src="saree3_dark.png" alt="Sary3 Mobile Dark UI" class="saree3-scroll-img">
+                                        </div>
+                                    </div>
+                                    <div class="mobile-viewport-container">
+                                        <span>Light Home</span>
+                                        <div class="mobile-viewport-screen">
+                                            <img src="saree3_light.png" alt="Sary3 Mobile Light UI" class="saree3-scroll-img">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="saree3-mobile-slide">
+                                    <div class="mobile-viewport-container">
+                                        <span>Market View</span>
+                                        <div class="mobile-viewport-screen">
+                                            <img src="saree3_market.png" alt="Sare3 Market View" class="saree3-scroll-img">
+                                        </div>
+                                    </div>
+                                    <div class="mobile-viewport-container">
+                                        <span>Vehicle Details</span>
+                                        <div class="mobile-viewport-screen">
+                                            <img src="saree3_details.png" alt="Vehicle Details View" class="saree3-scroll-img">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="slider-arrow next-arrow" onclick="slideSaree3(1)" aria-label="Next Screens">
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-          <h3 class="project-card__title">Exam System (Angular)</h3>
-          <p class="project-card__desc">
-            Online exam platform with authentication, exam creation, and REST API integration.
-          </p>
-          <ul class="tags">
-            <li>Angular</li><li>Node.js</li><li>Tailwind</li>
-          </ul>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card">
-          <h3 class="project-card__title">Jailak Platform</h3>
-          <p class="project-card__desc">
-            Responsive restaurant reservation & food delivery website with Bootstrap & JS.
-          </p>
-          <ul class="tags">
-            <li>JavaScript</li><li>Bootstrap</li><li>HTML/CSS</li>
-          </ul>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card">
-          <h3 class="project-card__title">NurseConnect UI/UX (3Naya)</h3>
-          <p class="project-card__desc">
-            Full UI/UX design for a smart healthcare platform connecting patients with nurses.
-          </p>
-          <ul class="tags">
-            <li>UI/UX</li><li>Figma</li><li>Prototyping</li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </section>
 
-  <!-- EDUCATION -->
-  <section class="section" id="education">
-    <div class="container reveal">
-      <h2>Education</h2>
-
-      <div class="timeline">
-        <div class="edu-item">
-          <h3>Information Technology Institute (ITI) — 9 Months Program</h3>
-          <p class="edu-item__meta">Front-End Development & UI/UX (2024–2025)</p>
+    <!-- Modal 2: NurseConnect (3Naya) -->
+    <div class="project-modal" id="3naya-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" aria-label="Close Modal"><i data-lucide="x"></i></button>
+            <div class="modal-body-scroll">
+                <div class="modal-grid-layout">
+                    <div class="modal-text-side">
+                        <span class="modal-tag">Case Study</span>
+                        <h2>NurseConnect (3Naya)</h2>
+                        <h4 class="modal-sub">Smart In-Home Healthcare Platform</h4>
+                        <div class="modal-rich-desc">
+                            <p><strong>The Challenge:</strong> Creating a highly secure yet simple system that enables patients, often elderly, to find and contact verified nurses for emergency or daily care visits.</p>
+                            <p><strong>The Solution:</strong> Structured clear visual personas and user flows. Conducted user interviews and wireframed dynamic healthcare catalogs in Figma, then implemented the front-end mockup in NextJS.</p>
+                            <div class="tech-stack-row">
+                                <span class="tech-tag">UX Research</span>
+                                <span class="tech-tag">Wireframing</span>
+                                <span class="tech-tag">Figma Mockups</span>
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">Next.js</span>
+                            </div>
+                            <div class="modal-behance-row">
+                                <a href="https://www.behance.net/gallery/230717309/3naya" target="_blank" class="modal-behance-btn">
+                                    <i data-lucide="behance"></i> To see all designs, click here
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-visual-side nurseconnect-modal-visual">
+                        <div class="nurseconnect-slider-container">
+                            <button class="slider-arrow prev-arrow" onclick="slideNurseConnect(-1)" aria-label="Previous Screens">
+                                <i data-lucide="chevron-left"></i>
+                            </button>
+                            
+                            <div class="nurseconnect-slider-track">
+                                <div class="nurseconnect-slide active">
+                                    <div class="desktop-viewport-container">
+                                        <span>Landing Page</span>
+                                        <div class="desktop-viewport-screen">
+                                            <img src="nurseconnect.png" alt="NurseConnect Landing Page" class="nurseconnect-scroll-img">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="nurseconnect-slide">
+                                    <div class="desktop-viewport-container">
+                                        <span>Find Nurse</span>
+                                        <div class="desktop-viewport-screen">
+                                            <img src="nurseconnect_find.png" alt="Find Nurse" class="nurseconnect-scroll-img">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="nurseconnect-slide">
+                                    <div class="desktop-viewport-container">
+                                        <span>Appointments</span>
+                                        <div class="desktop-viewport-screen">
+                                            <img src="nurseconnect_appointments.png" alt="Appointments Dashboard" class="nurseconnect-scroll-img">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="nurseconnect-slide">
+                                    <div class="desktop-viewport-container">
+                                        <span>Settings</span>
+                                        <div class="desktop-viewport-screen">
+                                            <img src="nurseconnect_settings.png" alt="Settings Panel" class="nurseconnect-scroll-img">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="slider-arrow next-arrow" onclick="slideNurseConnect(1)" aria-label="Next Screens">
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="edu-item">
-          <h3>Bachelor's Degree in Computer Science</h3>
-          <p class="edu-item__meta">Assiut University (2020–2024)</p>
-        </div>
-      </div>
     </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <div class="container reveal">
-      <h2>Skills</h2>
-
-      <div class="skill-groups">
-        <!-- Frontend -->
-        <div class="skill-group">
-          <h3>Front-End Skills</h3>
-          <ul class="skill-badges">
-            <li>React</li><li>Vue.js</li><li>Angular</li><li>HTML5</li>
-            <li>CSS3</li><li>JavaScript</li><li>Bootstrap</li><li>Tailwind</li>
-            <li>Material UI</li><li>Sass</li>
-          </ul>
+    <!-- Modal 3: Shefa -->
+    <div class="project-modal" id="shefa-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" aria-label="Close Modal"><i data-lucide="x"></i></button>
+            <div class="modal-body-scroll">
+                <div class="modal-grid-layout">
+                    <div class="modal-text-side">
+                        <span class="modal-tag">Case Study</span>
+                        <h2>Shefa Portal</h2>
+                        <h4 class="modal-sub">Accessible Medical Platform</h4>
+                        <div class="modal-rich-desc">
+                            <p><strong>The Challenge:</strong> Designing a medical portal prioritizing WCAG 2.1 AA accessibility guidelines, allowing visually impaired and motor-impaired users to schedule appointments and view medical records easily.</p>
+                            <p><strong>The Solution:</strong> Implemented customizable UI controls (contrast ratio scaling, keyboard focus outlines, fluid typography resizing) while keeping a premium, modern aesthetic.</p>
+                            <div class="tech-stack-row">
+                                <span class="tech-tag">Accessibility (WCAG)</span>
+                                <span class="tech-tag">UI/UX Design</span>
+                                <span class="tech-tag">Responsive layouts</span>
+                                <span class="tech-tag">React.js</span>
+                            </div>
+                            <div class="modal-behance-row">
+                                <a href="https://www.behance.net/gallery/251152511/SHIFAA" target="_blank" class="modal-behance-btn">
+                                    <i data-lucide="behance"></i> To see all designs, click here
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-visual-side">
+                        <div class="interactive-prototype-view">
+                            <h5>Project Interface Showcase</h5>
+                            <p class="proto-helper">Hover over the viewport below to scroll through the full layout design:</p>
+                            <div class="proto-wireframe shefa-modal-viewport">
+                                <img src="shefa.png" alt="Shefa Healthcare Platform Interface" class="shefa-modal-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <!-- UI/UX -->
-        <div class="skill-group">
-          <h3>UI/UX Skills</h3>
-          <ul class="skill-badges">
-            <li>Figma</li><li>Adobe Illustrator</li><li>Prototyping</li>
-            <li>Wireframing</li><li>Design Thinking</li><li>User Flows</li>
-          </ul>
+    <!-- Modal 3.5: Shefaa Mobile UI/UX -->
+    <div class="project-modal" id="shefa-mobile-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" aria-label="Close Modal"><i data-lucide="x"></i></button>
+            <div class="modal-body-scroll">
+                <div class="modal-grid-layout">
+                    <div class="modal-text-side">
+                        <span class="modal-tag">UI/UX Case Study</span>
+                        <h2>Shefaa Mobile App</h2>
+                        <h4 class="modal-sub">Healthcare & Patient Management UI</h4>
+                        <div class="modal-rich-desc">
+                            <p><strong>Design Philosophy:</strong> A comprehensive mobile application designed to simplify healthcare workflows for patients. Features a clean, accessible layout in Arabic & English, with quick shortcuts to clinics, pharmacy services, and doctor profiles.</p>
+                            <p><strong>Visual System:</strong> Designed using soft green tones (`#00696B`) to represent trust and health. The dashboard presents patient profiles, code tracking, active prescription statuses, and nearby medical centers with precise visual hierarchies.</p>
+                            <div class="tech-stack-row">
+                                <span class="tech-tag">UI/UX Design</span>
+                                <span class="tech-tag">Mobile App Design</span>
+                                <span class="tech-tag">Arabic UI Layout</span>
+                                <span class="tech-tag">Figma Prototypes</span>
+                            </div>
+                            <div class="modal-behance-row">
+                                <a href="https://www.behance.net/gallery/251208103/SHIFAA-APP" target="_blank" class="modal-behance-btn">
+                                    <i data-lucide="behance"></i> To see all designs, click here
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-visual-side shefa-mobile-modal-visual">
+                        <div class="shefa-mobile-slider-container">
+                            <button class="slider-arrow prev-arrow" onclick="slideShefaMobile(-1)" aria-label="Previous Screens">
+                                <i data-lucide="chevron-left"></i>
+                            </button>
+                            
+                            <div class="shefa-mobile-slider-track">
+                                <div class="shefa-mobile-slide active">
+                                    <div class="mobile-viewport-container">
+                                        <span>Welcome Screen</span>
+                                        <div class="mobile-viewport-screen shefa-mobile-screen">
+                                            <img src="shefa_mobile_welcome.png" alt="CareConnect Welcome" class="shefa-scroll-img">
+                                        </div>
+                                    </div>
+                                    <div class="mobile-viewport-container">
+                                        <span>Onboarding</span>
+                                        <div class="mobile-viewport-screen shefa-mobile-screen">
+                                            <img src="shefa_mobile_onboarding.png" alt="CareConnect Onboarding" class="shefa-scroll-img">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="shefa-mobile-slide">
+                                    <div class="mobile-viewport-container">
+                                        <span>Login Screen</span>
+                                        <div class="mobile-viewport-screen shefa-mobile-screen">
+                                            <img src="shefa_mobile_login.png" alt="Shefaa Mobile Login" class="shefa-scroll-img">
+                                        </div>
+                                    </div>
+                                    <div class="mobile-viewport-container">
+                                        <span>Dashboard</span>
+                                        <div class="mobile-viewport-screen shefa-mobile-screen">
+                                            <img src="shefa_mobile.png" alt="Shefaa Main Dashboard" class="shefa-scroll-img">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="shefa-mobile-slide">
+                                    <div class="mobile-viewport-container">
+                                        <span>Choose Doctor</span>
+                                        <div class="mobile-viewport-screen shefa-mobile-screen">
+                                            <img src="shefa_mobile_choose.png" alt="Choose Doctor List" class="shefa-scroll-img">
+                                        </div>
+                                    </div>
+                                    <div class="mobile-viewport-container">
+                                        <span>Doctor Profile</span>
+                                        <div class="mobile-viewport-screen shefa-mobile-screen">
+                                            <img src="shefa_mobile_profile.png" alt="Doctor Profile Page" class="shefa-scroll-img">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="slider-arrow next-arrow" onclick="slideShefaMobile(1)" aria-label="Next Screens">
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <!-- Backend -->
-        <div class="skill-group">
-          <h3>Backend | General</h3>
-          <ul class="skill-badges">
-            <li>Node.js</li><li>MySQL</li><li>MongoDB</li>
-            <li>C++</li><li>OOP</li><li>Design Patterns</li>
-          </ul>
+    <!-- Modal 4: Jailak -->
+    <div class="project-modal" id="jailak-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" aria-label="Close Modal"><i data-lucide="x"></i></button>
+            <div class="modal-body-scroll">
+                <div class="modal-grid-layout">
+                    <div class="modal-text-side">
+                        <span class="modal-tag">Case Study</span>
+                        <h2>Jailak Platform</h2>
+                        <h4 class="modal-sub">Restaurant Booking & Delivery Web App</h4>
+                        <div class="modal-rich-desc">
+                            <p><strong>The Challenge:</strong> Designing a combined restaurant reservation and delivery interface with frictionless workflows for seat selection and order checkout.</p>
+                            <p><strong>The Solution:</strong> Developed a responsive interactive dining layout with clear visual calendar components and smooth responsive navigation to optimize loading performance.</p>
+                            <div class="tech-stack-row">
+                                <span class="tech-tag">UI/UX Design</span>
+                                <span class="tech-tag">Calendar Reservation</span>
+                                <span class="tech-tag">Responsive Web</span>
+                                <span class="tech-tag">Frontend Flow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-visual-side">
+                        <div class="interactive-prototype-view">
+                            <h5>Seat Selection Simulator</h5>
+                            <p class="proto-helper">Click a table to simulate reservation selection:</p>
+                            <div class="proto-wireframe">
+                                <div class="wireframe-screen jailak-proto-bg">
+                                    <div class="wf-header">
+                                        <span>Table Map View</span>
+                                    </div>
+                                    <div class="table-grid-proto">
+                                        <div class="proto-table occupied" onclick="alert('Table is already booked!')">T1<br>(2 seats)</div>
+                                        <div class="proto-table available" onclick="selectProtoTable(this)">T2<br>(4 seats)</div>
+                                        <div class="proto-table available" onclick="selectProtoTable(this)">T3<br>(2 seats)</div>
+                                        <div class="proto-table occupied" onclick="alert('Table is already booked!')">T4<br>(6 seats)</div>
+                                    </div>
+                                    <div id="table-selection-status" style="margin-top: 15px; text-align: center; font-size: 14px;">Select an available table above</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
 
-  <!-- LANGUAGES -->
-  <section class="section" id="languages">
-    <div class="container reveal">
-      <h2>Languages</h2>
-      <ul class="lang-list">
-        <li>Arabic — Native</li>
-        <li>English — Good</li>
-      </ul>
+    <!-- Modal 5: E-Commerce -->
+    <div class="project-modal" id="ecommerce-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" aria-label="Close Modal"><i data-lucide="x"></i></button>
+            <div class="modal-body-scroll">
+                <h2>React E-Commerce Website</h2>
+                <h4 class="modal-sub">Architecture & Design Case Study</h4>
+                <div class="modal-single-layout">
+                    <p>This application implements an advanced e-commerce catalog featuring real-time client side filters, routing transitions, and persistent cart state. Built using **ReactJS** and structured styling via **Material UI**.</p>
+                    <div class="tech-specs-table">
+                        <div class="spec-row">
+                            <span class="spec-name">Core Stack</span>
+                            <span class="spec-val">React (Context API for state), Material UI</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-name">Features</span>
+                            <span class="spec-val">Responsive product listings, reactive cart indicator, simulated checkout, responsive layouts</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-name">CSS Framework</span>
+                            <span class="spec-val">Material UI System CSS + JSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="container reveal">
-      <h2>Contact</h2>
-      <ul class="contact-list">
-        <li>Email: <a href="mailto:mayarmohamed.8d6v@gmail.com">mayarmohamed.8d6v@gmail.com</a></li>
-        <li>Phone: <a href="tel:+201033224614">+20 103 322 4614</a></li>
-        <li>GitHub: <a href="https://github.com/MayarMohameed">MayarMohameed</a></li>
-      </ul>
+    <!-- Modal 6: Exam System -->
+    <div class="project-modal" id="exam-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" aria-label="Close Modal"><i data-lucide="x"></i></button>
+            <div class="modal-body-scroll">
+                <h2>Online Exam Portal</h2>
+                <h4 class="modal-sub">Architecture & Design Case Study</h4>
+                <div class="modal-single-layout">
+                    <p>Designed and built using **Angular**, this system showcases a structured assessment wizard. Connected to simulated backend services via REST APIs with secure authentication tokens.</p>
+                    <div class="tech-specs-table">
+                        <div class="spec-row">
+                            <span class="spec-name">Core Stack</span>
+                            <span class="spec-val">Angular Core, TypeScript, Reactive Forms</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-name">Features</span>
+                            <span class="spec-val">Secure exam authorization guards, real-time timer controller, automated question result reports, responsive grids</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-name">HTTP Client</span>
+                            <span class="spec-val">Angular HttpClient with RxJS Observables</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
-</main>
 
-<footer class="site-footer">
-  <div class="container footer__inner">
-    <p>© 2025 Mayar Mohamed. All rights reserved.</p>
-    <a href="#top" class="to-top">↑</a>
-  </div>
-</footer>
-
-<script src="index.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
